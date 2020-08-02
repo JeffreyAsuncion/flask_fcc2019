@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-from flask_sqlachemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 
@@ -16,7 +16,7 @@ class BlogPost(db.Model):
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text, nullable=False)
     author = db.Column(db.String(30), nullable=False, default='Author Unknown...')
-    date_posted = db.Column(db.DataTime, nullable=False, default=datetime.utcnow)
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     def __repr__(self):
         return 'Blog post ' + str(self.id) 

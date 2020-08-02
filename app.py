@@ -3,9 +3,9 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
-@app.route('/home/<string:name>')
-def hello(name):
-    return "Hello World!!!" + name
+@app.route('/home/users/<string:name>/posts/<int:id>')
+def hello(name, id):
+    return "Hello, " + name + " Your id is :" + str(id)
 
 if __name__ == "__main__":
     app.run(debug=True)

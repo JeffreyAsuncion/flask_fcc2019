@@ -1,8 +1,25 @@
 from flask import Flask
 from flask import render_template
+from flask_sqlachemy import SQLAlchemy
+from datetime import datetime
+
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+db = SQLAlchemy(app)
 
+
+# Set up data base 
+#.. This will replace the hard coded "all_posts"
+class BlogPost(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    author = db.Column(db.String(30), nullable=False, default='Author Unknown...')
+    date_posted = db.Column(db.DataTime, nullable=False, default=datetime.utcnow)
+
+    def __repr__(self):
+        return 'Blog post ' + str(self.id) 
 
 #dummy data ie from database
 all_posts = [

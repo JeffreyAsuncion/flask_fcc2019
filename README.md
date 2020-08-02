@@ -17,3 +17,9 @@ terminal>python>from app import db
 [Blog post 1, Blog post 2]
 >>> BlogPost.query.all()[0].author
 'Isabelley'
+>>> BlogPost.query.all()[1].content
+'One Sunday morning the warm sun came up...'
+>>> BlogPost.query.all()[1].date_posted
+datetime.datetime(2020, 8, 2, 19, 15, 38, 857502)
+
+timestamp 1:14:58 front end inputs

@@ -8,11 +8,12 @@ app = Flask(__name__)
 all_posts = [
     {
         'title': 'Post 1',
-        'content': 'This is the content of post 1.  Isabelley, Isabelley'
+        'content': 'In the light of the moon a little egg lay on a leaf. Isabelley, Isabelley',
+        'author': 'Isabella Grace'
     },
     {
         'title': 'Post 2',
-        'content': 'This is the content of post 2 Night and Day Isabelley'
+        'content': 'One Sunday morning the warm sun cam up... Night and Day Isabelley'
     }
 
 ]

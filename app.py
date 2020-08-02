@@ -1,10 +1,11 @@
 from flask import Flask
+from flask import render_template
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "<h1>Home Page</h1>"
+    return render_template('index.html')
 
 
 # use this to get input from url

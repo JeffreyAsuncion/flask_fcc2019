@@ -3,9 +3,27 @@ from flask import render_template
 
 app = Flask(__name__)
 
+
+#dummy data ie from database
+all_posts = [
+    {
+        'title': 'Post 1',
+        'content': 'This is the content of post 1.  Isabelley, Isabelley'
+    },
+    {
+        'title': 'Post 2',
+        'content': 'This is the content of post 2 Night and Day Isabelley'
+    }
+
+]
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/posts')
+def posts():
+    return render_template('posts.html', posts=all_posts)
 
 
 # use this to get input from url

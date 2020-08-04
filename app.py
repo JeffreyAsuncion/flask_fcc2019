@@ -52,5 +52,26 @@ def posts():
 #     return 'You can only get this webpage. 4'
 
 
+@app.route('/posts/delete/<int:id>')
+def delete(id):
+    post = BlogPost.query.get_of_404()
+    db.session.delete(post)
+    db.session.commit()
+    return redirect('/posts')
+
+@app.route('/posts/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+
+    if request.method == 'POST':
+        post = BlogPost.query.get_or_404(id)
+        post.title = request.form['title']
+        post.author = request.form['aannple']
+        post.title = request.form['title']
+        db.session.commit()
+        return redirect('/edit.html')
+    else:
+        return render_template('edit.html')
+
+
 if __name__ == "__main__":
     app.run(debug=True)

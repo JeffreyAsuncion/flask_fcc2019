@@ -56,3 +56,4 @@ Pink Fong
 
 
 timestamp 1:36:58 added author in form
+timestamp 1:48:40 delete and edit

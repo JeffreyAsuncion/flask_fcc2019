@@ -23,3 +23,4 @@ terminal>python>from app import db
 datetime.datetime(2020, 8, 2, 19, 15, 38, 857502)
 
 timestamp 1:14:58 front end inputs
+timestamp 1:23:05 back end working

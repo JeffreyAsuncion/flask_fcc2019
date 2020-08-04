@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template
+from flask import render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -41,18 +41,28 @@ def index():
 
 @app.route('/posts', methods=['GET', 'POST'])
 def posts():
-    return render_template('posts.html', posts=all_posts)
+
+    if request.method == 'POST':
+        post_title = request.form['title']
+        post_content = request.form['content']
+        new_post = BlogPost(title=post_title, content=post_content, author='Isabella')
+        db.session.add(new_post)
+        db.session.commit()
+        return redirect('/posts')
+    else:
+        all_posts = BlogPost.query.order_by(BlogPost.date_posted).all()
+        return render_template('posts.html', posts=all_posts)
 
 
-# use this to get input from url
-@app.route('/home/users/<string:name>/posts/<int:id>')
-def hello(name, id):
-    return "Hello, " + name + " Your id is :" + str(id)
+# # use this to get input from url
+# @app.route('/home/users/<string:name>/posts/<int:id>')
+# def hello(name, id):
+#     return "Hello, " + name + " Your id is :" + str(id)
 
-# use to onlyget
-@app.route('/onlyget', methods=['GET', 'POST'])
-def get_req():
-    return 'You can only get this webpage. 4'
+# # use to onlyget
+# @app.route('/onlyget', methods=['GET', 'POST'])
+# def get_req():
+#     return 'You can only get this webpage. 4'
 
 
 if __name__ == "__main__":

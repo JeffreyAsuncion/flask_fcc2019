@@ -24,3 +24,35 @@ datetime.datetime(2020, 8, 2, 19, 15, 38, 857502)
 
 timestamp 1:14:58 front end inputs
 timestamp 1:23:05 back end working
+
+timestamp 1:24:13
+python
+>>>from app import db, BlogPost
+>>> BlogPost.query.all()
+[Blog post 1, Blog post 2, Blog post 3, Blog post 4]
+>>> BlogPost.query.get(1)
+Blog post 1
+>>> BlogPost.query.get(4)
+Blog post 4
+>>> BlogPost.query.get(5)
+>>>
+>>> db.session.delete(BlogPost.query.get(4))
+>>> db.session.commit()
+>>> BlogPost.query.get(4)
+>>> print(BlogPost.query.get(4))
+None
+>>> BlogPost.query.get(1).title
+'Title 23'
+>>> BlogPost.query.get(2).author
+'Isabella'
+>>> BlogPost.query.get(2).author = 'Pink Fong'
+>>> db.session.commit()
+>>> print(BlogPost.query.get(2).author)
+Pink Fong
+>>>
+>>> BlogPost.query.filter_by(author='Isabella').all()
+[Blog post 1, Blog post 3]
+
+
+
+timestamp 1:36:58 added author in form

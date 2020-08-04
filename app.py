@@ -21,20 +21,6 @@ class BlogPost(db.Model):
     def __repr__(self):
         return 'Blog post ' + str(self.id) 
 
-#dummy data ie from database
-all_posts = [
-    {
-        'title': 'Post 1',
-        'content': 'In the light of the moon a little egg lay on a leaf. Isabelley, Isabelley',
-        'author': 'Isabella Grace'
-    },
-    {
-        'title': 'Post 2',
-        'content': 'One Sunday morning the warm sun cam up... Night and Day Isabelley'
-    }
-
-]
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -45,7 +31,8 @@ def posts():
     if request.method == 'POST':
         post_title = request.form['title']
         post_content = request.form['content']
-        new_post = BlogPost(title=post_title, content=post_content, author='Isabella')
+        post_author = request.form['author']
+        new_post = BlogPost(title=post_title, content=post_content, author=post_author)
         db.session.add(new_post)
         db.session.commit()
         return redirect('/posts')

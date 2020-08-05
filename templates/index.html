@@ -1,9 +1,29 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
-{% block head %} 
+{% block head %}
 <title>Home</title>
 {% endblock %}
 
-{% block body %} 
+{% block body %}
+<br>
 <h1>Home Page</h1>
+<br>
+<main role="main">
+    <div class="jumbotron">
+        <div class="col-sm-8 mx-auto">
+            <h1>Welcome</h1>
+            <p>Welcome to Isabella's Blog! Here, we will be talking about everything 
+                about reading and computing. Reading discuss the books that you have read
+                or would like to read.  As well as, computing and computer science. Technology
+                is such a great deal of our life. We must take advantage of the opportunity
+                to learn more about this amazing field. </p>
+            <p>Go visit us at our website <a href="https://www.bluedragonkarateacademy.com">www.bluedragonkarateacademy.com</a> 
+                to check out more stuff not just blogs </p>
+            <p>
+                <a class="btn btn-primary" href="/posts" role="button">Go To Blog Posts &raquo;</a>
+            </p>
+        </div>
+    </div>
+</main>
+
 {% endblock %}

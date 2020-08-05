@@ -58,3 +58,4 @@ Pink Fong
 timestamp 1:36:58 added author in form
 timestamp 1:48:40 delete and edit
 timestamp 1:55:50 editting features active
+Timestamp 1:55:51 Bootstamp - Front End Tutorial

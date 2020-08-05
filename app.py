@@ -67,8 +67,8 @@ def edit(id):
     if request.method == 'POST':
         
         post.title = request.form['title']
-        post.author = request.form['aannple']
-        post.title = request.form['title']
+        post.author = request.form['author']
+        post.content = request.form['content']
         db.session.commit()
         return redirect('/edit.html')
     else:

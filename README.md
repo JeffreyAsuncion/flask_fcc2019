@@ -63,3 +63,6 @@ Timestamp 1:55:51 Bootstamp - Front End Tutorial
 TODO in base.html add facebook and other social media sites
 
 timestamp 2:09:41 updated the index.html with nav bar and jumbotron
+timestamp 2:14:58 updated html for Blog Posts Edit and Delete Button
+timestamp 2:35:09 
+TODO delete button doesnot work
